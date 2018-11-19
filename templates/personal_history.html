@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>personal_history</title>
+    <!-- Css -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-default color-fill navbar-fixed-top">
+        <div class="col-md-12">
+            <div class="nav">
+                <button class="btn-nav">
+                    <span class="icon-bar top"></span>
+                    <span class="icon-bar middle"></span>
+                    <span class="icon-bar bottom"></span>
+                </button>
+            </div>
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img class="logo" src="{% static 'img/logo.png' %}" alt="logo">
+            </a>
+            {% if user.is_authenticated %}
+            Hi {{ user.username }}!
+            <p><a href="{% url 'logout' %}">
+                    <img class="logout" src="{% static 'img/logout.png' %}" height="40" width="40" alt="logout">
+                </a></p>
+            {% else %}
+            You are not logged in
+            <p>
+                <a href="{% url 'login' %}">
+                    <img class="login" src="{% static 'img/login.png' %}" height="40" width="40" alt="login">
+                </a>
+                <a href="{% url 'signup' %}">
+                    <img class="signup" src="{% static 'img/signup.png' %}" height="40" width="40" alt="signup">
+                </a>
+            </p>
+            {% endif %}
+            <div class="nav-content hideNav hidden">
+                <ul class="nav-list vcenter">
+                    <li class="nav-item"><a class="item-anchor" href="{% url 'index' %}">Home</a></li>
+                    <li class="nav-item"><a class="item-anchor" href="{% url 'about' %}">About Me</a></li>
+                    <li class="nav-item"><a class="item-anchor" href="{% url 'portfolio' %}">Portfolio</a></li>
+                    <li class="nav-item"><a class="item-anchor" href="{% url 'contact' %}">Contact</a></li>
+                    <li class="nav-item"><a class="item-anchor" href="{% url 'guestbook' %}">Guestbook</a></li>
+                    <li class="nav-item"><a class="item-anchor" href="{% url 'personal_history' %}">Personal History</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section id="guestbook">
+        {% if user.is_authenticated %}
+        <div class="container">
+            <!-- <div style="margin: 0 auto;">
+
+                <form class="col-md-12" style="text-align: right;float: right;" method="GET" action=".">
+                    {% csrf_token %}
+                    <input name='msg_search' id="msg_search" type="text" placeholder="Search Messages">
+                    <button type="submit">Search</button>
+                </form>
+
+            </div> -->
+            <div id="content">
+                {% for msg in msgs %}
+                <div class='msg'>
+                    <span class="name">{{msg.talker}}</span>
+                    {{msg.message}}
+                </div>
+                {% endfor %}
+            </div>
+            {% if user.is_authenticated %}
+            <div id="send-box">
+                <form class="col-md-12" method="GET" action=".">
+                    {% csrf_token %}
+                    <input type="text" name="msg" id="msg" placeholder="Copy the message you want to edit or delete"><br>
+                    <input type="text" name="edited_msg" id="edited_msg" placeholder="Type edited message or leave it blank to delete"><br>
+                    <input type="submit" id="submit" value="Submit">
+                </form>
+            </div>
+            {% endif %}
+
+        </div>
+        {% else %}
+        <div class="container">
+            <div class="col-md-12">
+                <div style="text-align:center;font-size:26px">Please Login or Signup.</div>
+            </div>
+        </div>
+        {% endif %}
+
+    </section>
+    <!-- script -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/modernizr.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

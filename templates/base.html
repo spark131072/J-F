@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Spark</title>
+    <!-- Css -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="col-md-12">
+            <div class="nav">
+                <button class="btn-nav">
+                    <span class="icon-bar inverted top"></span>
+                    <span class="icon-bar inverted middle"></span>
+                    <span class="icon-bar inverted bottom"></span>
+                </button>
+            </div>
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img class="logo" src="{% static 'img/logo.png' %}" alt="logo">
+            </a>
+            {% block content %}
+            {% if user.is_authenticated %}
+            Hi {{ user.username }}!
+            <p><a href="{% url 'logout' %}">
+                <img class="logout" src="{% static 'img/logout.png' %}" height="40" width="40" alt="logout">
+            </a></p>
+            {% else %}
+            You are not logged in
+            <p>
+            <a href="{% url 'login' %}">
+                <img class="login" src="{% static 'img/login.png' %}" height="40" width="40" alt="login">
+            </a>
+            <a href="{% url 'signup' %}">
+                <img class="signup" src="{% static 'img/signup.png' %}" height="40" width="40" alt="signup">
+            </a>
+            </p>
+            {% endif %}
+            {% endblock %}
+            <div class="nav-content hideNav hidden">
+                <ul class="nav-list vcenter">
+                    <li class="nav-item"><a class="item-anchor" href="{% url 'index' %}">Home</a></li>
+                    <li class="nav-item"><a class="item-anchor" href="{% url 'about' %}">About Me</a></li>
+                    <li class="nav-item"><a class="item-anchor" href="{% url 'portfolio' %}">Portfolio</a></li>
+                    <li class="nav-item"><a class="item-anchor" href="{% url 'contact' %}">Contact</a></li>
+                    <li class="nav-item"><a class="item-anchor" href="{% url 'guestbook' %}">Guestbook</a></li>
+                    <li class="nav-item"><a class="item-anchor" href="{% url 'personal_history' %}">Personal History</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- script -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/menu-color.js' %}"></script>
+    <script src="{% static 'js/modernizr.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
