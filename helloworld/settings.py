@@ -37,12 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -50,7 +48,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 
 ROOT_URLCONF = 'helloworld.urls'
 
@@ -84,14 +81,7 @@ WSGI_APPLICATION = 'helloworld.wsgi.application'
 # }
 import dj_database_url
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'spark_syz',
-        'USER': 'Spark',
-        'PASSWORD': '2609',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
+    'default': dj_database_url.config(),
 }
 
 
@@ -141,22 +131,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 
-#
-# # STATICFILES_DIRS = [
-# #     os.path.join(BASE_DIR, 'static'),
-# # ]
-#
-#
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static'),
-# ]
-
-
 # settings for localhost
 django_heroku.settings(locals())
-
-# REDIRECT_URL
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
