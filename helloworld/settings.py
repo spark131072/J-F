@@ -81,7 +81,14 @@ WSGI_APPLICATION = 'helloworld.wsgi.application'
 # }
 import dj_database_url
 DATABASES = {
-    'default': dj_database_url.config(),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'JF',
+        'USER': 'admin',
+        'PASSWORD': '2609',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 }
 
 
@@ -133,3 +140,6 @@ STATIC_URL = '/static/'
 
 # settings for localhost
 django_heroku.settings(locals())
+
+# settings for redirect
+LOGIN_REDIRECT_URL = '/'
