@@ -26,6 +26,44 @@ html, body {
         text-align: center;
     }
 
+    .indexbtn {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: SteelBlue;
+        border: none;
+        color: white;
+        text-align: center;
+        font-size: 13px;
+        padding: 7px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .indexbtn span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .indexbtn span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .indexbtn:hover span {
+        padding-right: 17px;
+    }
+
+    .indexbtn:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
 
     #container {
         top: 50px;
@@ -101,4 +139,4 @@ html, body {
         color: darkred;
         content: " ] ";
         size: 70%;
-    }        
+    }
