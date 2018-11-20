@@ -40,8 +40,8 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('portfolio/', views.portfolio, name='portfolio'),
-    path('guestbook/', views.guestbook, name='guestbook'),
-    path('personal_history/', views.personal_history, name='personal_history'),
+    # path('guestbook/', views.guestbook, name='guestbook'),
+    # path('personal_history/', views.personal_history, name='personal_history'),
     path('account/', include('account.urls')),
     path('account/', include('django.contrib.auth.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
