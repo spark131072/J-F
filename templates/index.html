@@ -16,8 +16,12 @@
         Just Fuck<br>
     </h2>
     <center>
-        <button class="indexbtn"><span><a href="{% url 'login' %}">Log In</a></span></button>
+        {% if user.is_authenticated %}
+        <button class="indexbtn" onclick="location.href='{% url "logout" %}'"><span>Log Out</span></button>
+        {% else %}
+        <button class="indexbtn" onclick="location.href='{% url "login" %}'"><span>Log In</span></button>
         <button class="indexbtn"><span>Create Account</span></button>
+        {% endif %}
     </center>
 </body>
 
