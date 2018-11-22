@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,14 @@ WSGI_APPLICATION = 'helloworld.wsgi.application'
 # }
 import dj_database_url
 DATABASES = {
-    'default': dj_database_url.config(),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'JF',
+        'USER': 'admin',
+        'PASSWORD': '2609',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 }
 
 
@@ -133,3 +141,11 @@ STATIC_URL = '/static/'
 
 # settings for localhost
 django_heroku.settings(locals())
+
+# settings for redirect
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+# settings for resetting password
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
