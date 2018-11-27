@@ -15,6 +15,8 @@
         Just Flirt<br>
         Just Fuck<br>
     </h2>
+    <div><img src="{{user.profile.image.url}}" alt=""></div>
+
     <center>
         {% if user.is_authenticated %}
         <button class="indexbtn" onclick="location.href='{% url "logout" %}'"><span>Log Out</span></button>
