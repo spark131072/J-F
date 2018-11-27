@@ -256,6 +256,12 @@ h1, h2, h3, h4, h5, h6, figure {
     color: #fff !important;
 }
 
+#bgimg {
+    background-image: url('https://66.media.tumblr.com/d14a3ccba7484258d97f3ad0927d2eb0/tumblr_of5jt31nAi1rti241o1_1280.jpg');
+    opacity: 0.5;
+    width: 100%;
+}
+
 #gtco-header,
 #gtco-counter,
 .gtco-bg {
@@ -335,6 +341,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .gtco-cover {
+
     height: 900px;
     background-size: cover;
     background-position: top center;
