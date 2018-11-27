@@ -1,11 +1,13 @@
 @font-face {
     font-family: 'icomoon';
     src: url("../fonts/icomoon/icomoon.eot?srf3rx");
-    src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"), url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
+    src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"),
+         url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"),
+         url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"),
+         url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
     font-weight: normal;
     font-style: normal;
 }
-
 /* =======================================================
 *
 * 	Template Style
@@ -1572,24 +1574,14 @@ html, body {
     margin: 0;
 }
 
-/*div{
-        background-color: #FFF;
-    }
-*/
-#ta {
-    /*color:red;*/
-    font-size: 110%;
-    text-indent: 100px;
-    text-align: center;
-}
-
-#ps {
-    color: red;
-}
-
-h1, h2 {
+h1 {
     font-size: 20px;
     text-align: center;
+}
+
+h2 {
+    color: #2aacac;
+    font-size: 20px;
 }
 
 .indexbtn {
@@ -1612,7 +1604,7 @@ h1, h2 {
     display: inline-block;
     position: relative;
     transition: 0.5s;
-    font-family: cursive;
+    font-family: "Lobster", cursive;
 }
 
 .indexbtn span:after {
@@ -1633,7 +1625,7 @@ h1, h2 {
     right: 0;
 }
 
-.loginbtn {
+.logbtn {
     display: inline-block;
     border-radius: 21px;
     background-color: white;
@@ -1645,15 +1637,16 @@ h1, h2 {
     cursor: pointer;
     margin: 5px;
 }
-.loginbtn span {
+.logbtn span {
     color: #2aacac;
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
+    font-family: 'Open Sans', sans-serif;
 }
 
-.loginbtn span:after {
+.logbtn span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -1662,27 +1655,22 @@ h1, h2 {
     transition: 0.5s;
 }
 
-.loginbtn:hover span {
+.logbtn:hover span {
     padding-right: 17px;
 }
 
-.loginbtn:hover span:after {
+.logbtn:hover span:after {
     opacity: 1;
     right: 0;
 }
 
 #container {
-    top: 50px;
-    width: 800px;
-    /*height: auto;*/
-    margin: 0 auto;
-    display: block;
-    position: relative;
-    /*border-style: double;*/
-    border-width: thin;
-    /*background-color: #FFF;*/
-    /*margin: 30px 50px 30px 50px;*/
-    /*border: 2px solid #00A;*/
+    margin: 0;
+    padding: 0;
+    background-image: -webkit-linear-gradient(90deg, #66CDAA, #258BC6);
+    background-image: -o-linear-gradient(90deg, #66CDAA, #258BC6);
+    background-image: -moz-linear-gradient(90deg, #66CDAA, #258BC6);
+    background-image: linear-gradient(90deg, #66CDAA, #258BC6);
 }
 
 #status-box {

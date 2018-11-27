@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 {% load static %}
-<html>
+<div>
 
 <head>
     <meta charset="utf-8">
@@ -20,19 +20,14 @@
     <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/owl.theme.default.min.css' %}" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" rel="stylesheet">
+
     <!-- Modernizr JS -->
     <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
-    <!-- FOR IE9 below -->
-    <!--[if lt IE 9]>
-    <script src="{% static 'js/respond.min.js' %}"></script>
-    <![endif]-->
 </head>
 
-<body>
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
+<body id="container">
+{% block content %}
+{% endblock %}
 </body>
-
 </html>
