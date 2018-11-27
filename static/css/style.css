@@ -1594,19 +1594,20 @@ h1, h2 {
 
 .indexbtn {
     display: inline-block;
-    border-radius: 4px;
-    background-color: #2aacac;
+    border-radius: 8px;
+    background-color: white;
     border: none;
-    color: white;
+    color: #2aacac;
     text-align: center;
-    font-size: 13px;
-    padding: 7px;
+    font-size: 26px;
+    padding: 17px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
 }
 
 .indexbtn span {
+    color: #2aacac;
     cursor: pointer;
     display: inline-block;
     position: relative;
@@ -1627,6 +1628,44 @@ h1, h2 {
 }
 
 .indexbtn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.loginbtn {
+    display: inline-block;
+    border-radius: 21px;
+    background-color: white;
+    border: none;
+    color: #2aacac;
+    text-align: center;
+    font-size: 17px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+.loginbtn span {
+    color: #2aacac;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.loginbtn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.loginbtn:hover span {
+    padding-right: 17px;
+}
+
+.loginbtn:hover span:after {
     opacity: 1;
     right: 0;
 }
