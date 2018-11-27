@@ -42,6 +42,11 @@ INSTALLED_APPS = [
     # 'django_google_maps'
 ]
 
+
+# Google Maps API key
+GOOGLE_MAPS_API_KEY = 'AIzaSyD27byCiGJqgSBbiqpRwk-s69D5nl9oWEw'
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
