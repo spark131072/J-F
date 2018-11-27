@@ -7,6 +7,24 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>JF</title>
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Animate.css -->
+    <link href="{% static 'css/animate.css' %}"rel="stylesheet">
+    <!-- Icomoon Icon Fonts-->
+    <link href="{% static 'css/icomoon.css' %}" rel="stylesheet">
+    <!-- Bootstrap  -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <!-- Magnific Popup -->
+    <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
+    <!-- Owl Carousel  -->
+    <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.theme.default.min.css' %}" rel="stylesheet">
+
+    <!-- Modernizr JS -->
+    <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="{% static 'js/respond.min.js' %}"></script>
+    <![endif]-->
 </head>
 
 <body>
@@ -508,11 +526,6 @@
     <!-- Main -->
     <script src="js/main.js"></script>
 
-    <h1>JF</h1>
-    <h2>Just Friends<br>
-        Just Flirt<br>
-        Just Fuck<br>
-    </h2>
     <center>
         {% if user.is_authenticated %}
         <button class="indexbtn" onclick="location.href='{% url "logout" %}'"><span>Log Out</span></button>
