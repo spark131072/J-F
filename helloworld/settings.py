@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    # 'geo',
+    # 'django_google_maps'
 ]
 
 MIDDLEWARE = [
@@ -70,6 +72,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'helloworld.wsgi.application'
 
+# google maps api key
+GOOGLE_MAPS_API_KEY = 'AIzaSyD27byCiGJqgSBbiqpRwk-s69D5nl9oWEw'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
