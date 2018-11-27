@@ -21,3 +21,7 @@ import random
 def index(request):
 
     return render(request, 'index.html', locals())
+
+def geo(request):
+
+    return render(request, 'geo.html', locals())
