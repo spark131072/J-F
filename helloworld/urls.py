@@ -23,9 +23,10 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('geo/', views.geo, name='geo'),
     path('account/', include('account.urls')),
     path('account/', include('django.contrib.auth.urls'))
-] 
+]
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
