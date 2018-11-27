@@ -1,5 +1,5 @@
 # J-F
 
-Just Friends  
+Just Friendl  
 Just Flirt  
 Just Fuck
