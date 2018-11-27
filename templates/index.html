@@ -28,6 +28,12 @@
 </head>
 
 <body>
+    <h1>JF</h1>
+    <h2>Just Friends<br>
+        Just Flirt<br>
+        Just Fuck<br>
+    </h2>
+    <div><img src="{{user.profile.image.url}}" alt=""></div>
 <div class="gtco-loader"></div>
 
     <div id="page">
@@ -63,9 +69,15 @@
                     </ul>
                 </div>
                 <div class="col-xs-2 text-right hidden-xs menu-2">
+                    {% if user.is_authenticated %}
                     <ul>
-                        <a href="#" class="loginbtn"><span>Login</span></a>
+                        <button class="indexbtn" onclick="location.href='{% url "logout" %}'"><span>Log Out</span></button>
                     </ul>
+                    {% else %}
+                    <ul>
+                        <a href="{% url 'login' %}" class="loginbtn"><span>Login</span></a>
+                    </ul>
+                    {% endif %}
                 </div>
             </div>
 
@@ -79,7 +91,7 @@
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeIn">
                             <h1><font face="Times New Roman">JF</font></h1>
-                            <h2>just friends, just flirt, just fuck </h2>
+                            <h2><font face="Times New Roman">just friends, just flirt, just fuck</font></h2>
                             <p><a href="#" class="indexbtn"><span>Get Started</span></a></p>
                         </div>
                     </div>
