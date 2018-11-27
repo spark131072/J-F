@@ -351,7 +351,7 @@ h1, h2, h3, h4, h5, h6, figure {
     right: 0;
     left: 0;
     bottom: 0;
-    background: url('https://66.media.tumblr.com/d14a3ccba7484258d97f3ad0927d2eb0/tumblr_of5jt31nAi1rti241o1_1280.jpg') center center;
+    background: url('/static/img/coverphoto.gif') center center;
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
