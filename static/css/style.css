@@ -1612,6 +1612,7 @@ h1, h2 {
     display: inline-block;
     position: relative;
     transition: 0.5s;
+    font-family: cursive;
 }
 
 .indexbtn span:after {
