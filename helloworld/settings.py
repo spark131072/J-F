@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
-    'geo',
-    'django_google_maps'
+    # 'geo',
+    # 'django_google_maps'
 ]
 
 MIDDLEWARE = [
