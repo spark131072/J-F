@@ -28,14 +28,6 @@
 </head>
 
 <body>
-    <h1>JF</h1>
-    <h2>Just Friends<br>
-        Just Flirt<br>
-        Just Fuck<br>
-    </h2>
-    <div><img src="{{user.profile.image.url}}" alt=""></div>
-<div class="gtco-loader"></div>
-
     <div id="page">
     <nav class="gtco-nav" role="navigation">
         <div class="gtco-container">
@@ -71,6 +63,7 @@
                 <div class="col-xs-2 text-right hidden-xs menu-2">
                     {% if user.is_authenticated %}
                     <ul>
+                            <button class="indexbtn" onclick="location.href='{% url "profile" %}'"><span>profile</span></button>
                         <button class="indexbtn" onclick="location.href='{% url "logout" %}'"><span>Log Out</span></button>
                     </ul>
                     {% else %}

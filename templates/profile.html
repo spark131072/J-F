@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% csrf_token %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">My name is : {{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+        <form  method="post" enctype="multipart/form-data">{% csrf_token %}
+            <p>FFFFake upload btn</p>
+            <p>
+                <input id="id_image" type="file" class="" name="image">
+            </p>
+            <input type="submit" value="Submit" />
+        </form>
+      </div>
+      <!-- FORM HERE -->
+    </div>
+{% endblock content %}
