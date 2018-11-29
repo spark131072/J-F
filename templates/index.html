@@ -23,6 +23,11 @@
 
     <!-- Modernizr JS -->
     <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="{% static 'js/respond.min.js' %}"></script>
+    <![endif]-->
+
 </head>
 
 <body>
@@ -233,7 +238,7 @@
 
 
 </body>
-<script>
+<!-- <script>
 var socket = new io.Socket();
 socket.connect();
 socket.on('connect', function() {
@@ -242,6 +247,6 @@ socket.on('connect', function() {
 
 
 
-</script>
+</script> -->
 
 </html>
