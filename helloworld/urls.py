@@ -25,7 +25,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('geo/', views.geo, name='geo'),
     path('account/', include('account.urls')),
-    path('account/', include('django.contrib.auth.urls'))
+    path('account/', include('django.contrib.auth.urls')),
+    # path("", include('django_socketio.urls')),
 ]
 
 if settings.DEBUG:
