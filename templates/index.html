@@ -25,6 +25,8 @@
     <!--[if lt IE 9]>
     <script src="{% static 'js/respond.min.js' %}"></script>
     <![endif]-->
+    {% load socketio_tags %}
+    {% socketio %}
 </head>
 
 <body>
@@ -541,5 +543,15 @@
         {% endif %}
     </center>
 </body>
+<script>
+var socket = new io.Socket();
+socket.connect();
+socket.on('connect', function() {
+    socket.subscribe('my channel');
+});
+
+
+
+</script>
 
 </html>
