@@ -19,5 +19,6 @@ from . import views
 urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('profile/',views.profile,name='profile'),
+    path('upload_pic/',views.upload_pic,name='upload_pic')
     
 ]
