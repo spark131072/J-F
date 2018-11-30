@@ -21,3 +21,5 @@ import random
 def index(request):
 
     return render(request, 'index.html', locals())
+
+
