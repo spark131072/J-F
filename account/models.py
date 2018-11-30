@@ -19,7 +19,7 @@ from django.dispatch import receiver
 # Create your models here.
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE) 
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default = 'profile_pics/46761582_183035712641249_1139093754318159872_n.jpg' , upload_to = 'profile_pics')
 
     def __str__(self):
@@ -31,3 +31,11 @@ def update_user_profile(sender, instance, created, **kwargs):
         Profile.objects.create(user=instance)
     instance.profile.save()
 
+class Geo(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    username = models.CharField(max_length=113, blank=False)
+    lat = models.DecimalField(max_digits=9, decimal_places=6)
+    lng = models.DecimalField(max_digits=9, decimal_places=6)
+
+    def __str__(self):
+        return self.lat, self.lng
