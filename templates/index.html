@@ -51,7 +51,11 @@
      });
     });
     </script>
-</head>
+
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="{% static 'js/respond.min.js' %}"></script>
+    <![endif]-->
 
 <body>
 <div id="container">
@@ -262,7 +266,7 @@
 
 
 </body>
-<script>
+<!-- <script>
 var socket = new io.Socket();
 socket.connect();
 socket.on('connect', function() {
@@ -271,6 +275,6 @@ socket.on('connect', function() {
 
 
 
-</script>
+</script> -->
 
 </html>
