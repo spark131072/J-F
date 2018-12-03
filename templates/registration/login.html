@@ -3,16 +3,44 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
+<div id="container">
+<div class="gtco-loader"></div>
 
-<center>
-  <h2>Login</h2>
-  <form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
+    <nav class="gtco-nav" role="navigation">
+        <div class="gtco-container">
+            <div class="row">
+                <div class="col-xs-2">
+                    <div id="gtco-logo"><a href="/"><img src="/static/img/JF.png" height="93" width="93"></a></div>
+                </div>
+                <div class="col-xs-8 text-center menu-1">
+                    <ul>
+                        <li class="active"><a href="/">Home</a></li>
+                      <li><a href="/#gtco-team">About</a></li>
+                        <li><a href="/">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <button class="indexbtn" type="submit"><span>Login</span></button>
-    <button class="indexbtn" onclick="location.href='{% url "password_reset" %}'"><span>Forget Password?</span></button>
-
-</form>
-</center>
+    <header id="gtco-header" class="gtco-cover" role="banner">
+        <div class="gtco-container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <div class="display-t">
+                        <div class="display-tc animate-box" data-animate-effect="fadeIn">
+                            <h1><font face="Times New Roman">Login</font></h1>
+                            <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p}}
+                                <button class="indexbtn" type="submit"><span>Login</span></button>
+                                <button class="indexbtn" onclick="location.href='{% url "password_reset" %}'"><span>Forget Password?</span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
 {% endblock %}
