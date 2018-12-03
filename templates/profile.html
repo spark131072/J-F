@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+<!-- {% extends "base.html" %} -->
 {% csrf_token %}
 {% block content %}
     <nav class="gtco-nav" role="navigation">
@@ -37,10 +37,11 @@
           <h2 class="account-heading">My name is : {{ user.username }}</h2>
           <p class="text-secondary">{{ user.email }}</p>
         </div>
-        <form  method="post" enctype="multipart/form-data">{% csrf_token %}
+        <form action="{% url 'upload_pic' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
             <p>FFFFake upload btn</p>
             <p>
                 <input id="id_image" type="file" class="" name="image">
+                
             </p>
             <input type="submit" value="Submit" />
         </form>

@@ -35,11 +35,13 @@ def geo(request):
         _lng = 0.000000
 
         if request.method == 'POST':
-            json_receive = json.loads(request.body)
-            _lat = json_receive['lat']
-            _lng = json_receive['lng']
+            _lat = request.POST.get('lat')
+            # json_receive = json.loads(request.body)
 
-            print(_lat, _lng)
+            # _lat = json_receive.lat
+            # _lng = json_receive['lng']
+
+            print(_lat)
 
         if _lat != 0.000000 and _lng != 0.000000 and _lat is not None and _lng is not None:
             if Geo.objects.filter(user=_user).count() == 0:
