@@ -1,6 +1,9 @@
-<!-- {% extends "base.html" %} -->
+{% extends "base.html" %}
 {% csrf_token %}
 {% block content %}
+<div id="container">
+<div class="gtco-loader"></div>
+
     <nav class="gtco-nav" role="navigation">
         <div class="gtco-container">
             <div class="row">
@@ -48,4 +51,5 @@
       </div>
       <!-- FORM HERE -->
     </div>
+</div>
 {% endblock content %}
