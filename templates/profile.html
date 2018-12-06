@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-xs-8 text-center menu-1">
                     <ul>
-                        <li class="active"><a href="index.html">Home</a></li>
+                        <li class="active"><a href="/">Home</a></li>
                         <li><a href="#gtco-team">About</a></li>
                         <li><a href="/">Contact</a></li>
                     </ul>
@@ -33,21 +33,29 @@
         </div>
     </nav>
 
-    <div class="content-section" style="display: block">
+    <div class="content-section">
       <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" height="700" width="700">
+          <center>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" height="600" width="600">
         <div class="media-body">
           <h2 class="account-heading">My name is : {{ user.username }}</h2>
           <p class="text-secondary">{{ user.email }}</p>
         </div>
         <form action="{% url 'upload_pic' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
-            <p>FFFFake upload btn</p>
             <p>
                 <input id="id_image" type="file" class="" name="image">
                 
             </p>
             <input type="submit" value="Submit" />
         </form>
+          </center>
       </div>
       <!-- FORM HERE -->
     </div>
