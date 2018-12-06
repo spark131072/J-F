@@ -25,3 +25,5 @@ idna==2.5
 urllib3==1.21.1
 chardet==3.0.4
 certifi==2018.8.24
+channels==2.1.5
+channels-redis==2.3.2
