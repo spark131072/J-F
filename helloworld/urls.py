@@ -25,6 +25,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('account/', include('account.urls')),
     path('account/', include('django.contrib.auth.urls')),
+    path('chat/', include('chat.urls')),
     
     # path("", include('django_socketio.urls')),
 ] 
