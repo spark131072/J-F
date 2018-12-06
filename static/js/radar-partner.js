@@ -212,6 +212,7 @@ var d = [
          {value: 75, order:1},
          {value: 75, order:2},
          {value: 75, order:3},
-         {value: 75, order:4}
+         {value: 75, order:4},
+         {value: 75, order:5}
         ];
 RadarChart.draw("#chart-partner", d);
