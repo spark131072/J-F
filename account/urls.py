@@ -20,5 +20,6 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('profile/',views.profile,name='profile'),
     path('upload_pic/',views.upload_pic,name='upload_pic'),
-    path('taste/', views.taste, name='taste')
+    path('chart-self/', views.chart_self, name='self'),
+    path('chart-partner/', views.chart_partner, name='partner')
 ]

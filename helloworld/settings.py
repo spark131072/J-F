@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'core'
-    'chat',
-    'channels',
+    # 'chat',
+    # 'channels',
     # 'django-socketio',
     # 'geo',
     # 'django_google_maps'
