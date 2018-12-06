@@ -29,6 +29,22 @@
         function geo() {
             if (httpRequest.readyState === XMLHttpRequest.DONE) {
                 if (httpRequest.status === 200) {
+
+                    var json = httpRequest.responseText;
+                    $.ajax({
+                        type: "POST",
+                        url: {% url 'test' %},
+                        data: httpRequest.responseText,
+                        contentType: 'application/json',
+                        datatype: "json",
+                        success: function(data) {
+                            alert("it worked!");
+                        },
+                        error: function(data) {
+                            alert("it didnt work");
+                        }
+                    });
+
                     var geo_info = JSON.parse(httpRequest.responseText);
                     lat = geo_info.location.lat;
                     lng = geo_info.location.lng;
