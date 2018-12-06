@@ -88,11 +88,11 @@ def test(request):
                     _username = request.user.username
                     Geo.objects.create(lat=_lat, lng=_lng, username=_username, user=_user)
 
-            else:
-                current_user = Geo.objects.get(user=_user)
-                current_user.lat = _lat
-                current_user.lng = _lng
-                current_user.save()
+                else:
+                    current_user = Geo.objects.get(user=_user)
+                    current_user.lat = _lat
+                    current_user.lng = _lng
+                    current_user.save()
 
     return render(request, 'test.html', locals())
 
