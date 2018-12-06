@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
-    'core',
-    'chat',
-    'channels',
+    'core'
+    # 'chat',
+    # 'channels',
     # 'django-socketio',
     # 'geo',
     # 'django_google_maps'
