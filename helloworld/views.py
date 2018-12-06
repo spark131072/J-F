@@ -56,14 +56,10 @@ def geo_locate(request):
 
 def index(request):
 
-    geo_locate(request)
-
     return render(request, 'index.html', locals())
 
 
 def geo(request):
-
-    geo_locate(request)
 
     return render(request, 'geo.html', locals())
 
@@ -71,3 +67,12 @@ def geo(request):
 def match(request):
 
     return render(request, 'match.html', locals())
+
+
+def test(request):
+
+    return render(request, 'test.html', locals())
+
+def weather(request):
+
+    return render(request, 'weather.html', locals())

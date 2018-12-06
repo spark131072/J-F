@@ -26,7 +26,9 @@ urlpatterns = [
     path('geo/', views.geo, name='geo'),
     path('account/', include('account.urls')),
     path('account/', include('django.contrib.auth.urls')),
-    path('match/', views.match, name='match')
+    path('match/', views.match, name='match'),
+    path('test/', views.test, name='test'),
+    path('weather/', views.weather, name='weather')
     # path("", include('django_socketio.urls')),
 ]
 

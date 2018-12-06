@@ -1,0 +1,43 @@
+{% load static %}
+
+<head>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/csrf.js' %}"></script>
+</head>
+
+<button id="ajaxButton" type="button">Make a request</button>
+
+<script>
+    (function() {
+        var httpRequest;
+        var lat, lng;
+        document.getElementById("ajaxButton").addEventListener('click', makeRequest);
+
+        function makeRequest() {
+            httpRequest = new XMLHttpRequest();
+
+            if (!httpRequest) {
+                alert('Giving up :( Cannot create an XMLHTTP instance');
+                return false;
+            }
+            httpRequest.onreadystatechange = geo;
+            httpRequest.open('POST', 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyD27byCiGJqgSBbiqpRwk-s69D5nl9oWEw', true);
+            httpRequest.send();
+        }
+
+
+        function geo() {
+            if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                if (httpRequest.status === 200) {
+                    var geo_info = JSON.parse(httpRequest.responseText);
+                    lat = geo_info.location.lat;
+                    lng = geo_info.location.lng;
+                    alert(httpRequest.responseText);
+                } else {
+                    alert('There was a problem with the request.');
+                }
+            }
+        }
+
+    })();
+</script>
