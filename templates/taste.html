@@ -58,11 +58,13 @@
     <![endif]-->
 
 <body>
+<div id="self">
+<p>I am ...</p>
 
-<div id="chart" style='float:left'></div>
+<div id="chart-self" style='float:left'></div>
 
 <script src="https://d3js.org/d3.v3.min.js"></script>
-<script src="{% static 'js/radar.js' %}"></script>
+<script src="{% static 'js/radar-self.js' %}"></script>
 <script>
 
 var d = [
@@ -73,8 +75,28 @@ var d = [
          {axis: "Ambitious", value: 3, order:4},
          {axis: "Interest", value: 3, order:5}
         ];
-RadarChart.draw("#chart", d);
+RadarChart.draw("#chart-self", d);
 </script>
+</div>
 
+<div id="partner">
+<p>I am looking for ... </p>
+
+<div id="chart-partner" style='float:left'></div>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="{% static 'js/radar-partner.js' %}"></script>
+<script>
+
+var d = [
+         {axis: "Attractive", value: 3, order:0},
+         {axis: "Sincere", value: 3, order:1},
+         {axis: "Intelligent", value: 3, order:2},
+         {axis: "Fun", value: 3, order:3},
+         {axis: "Ambitious", value: 3, order:4},
+         {axis: "Interest", value: 3, order:5}
+        ];
+RadarChart.draw("#chart-partner", d);
+</script>
+</div>
 </body>
 </html>
