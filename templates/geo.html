@@ -33,7 +33,6 @@
         // failed.", it means you probably did not give permission for the browser to
         // locate you.
         var map, infoWindow;
-        var lat, lng;
         var pos = {};
 
         function initMap() {
@@ -74,6 +73,49 @@
                 'Error: Your browser doesn\'t support geolocation.');
             infoWindow.open(map);
         }
+
+        (function() {
+            var httpRequest;
+
+            function makeRequest() {
+                httpRequest = new XMLHttpRequest();
+
+                if (!httpRequest) {
+                    alert('Locate Error.');
+                    return false;
+                }
+                httpRequest.onreadystatechange = geo;
+                httpRequest.open('POST', 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyD27byCiGJqgSBbiqpRwk-s69D5nl9oWEw', true);
+                httpRequest.send();
+            }
+
+
+            function geo() {
+                if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                    if (httpRequest.status === 200) {
+
+                        var json = httpRequest.responseText;
+                        $.ajax({
+                            type: "POST",
+                            url: {% url 'geo' %},
+                            data: httpRequest.responseText,
+                            contentType: 'application/json',
+                            datatype: "json",
+                            success: function(data) {
+                            },
+                            error: function(data) {
+                            }
+                        });
+
+                    } else {
+                        alert('Locate Error.');
+                    }
+                }
+            }
+
+        makeRequest();
+        })();
+
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD27byCiGJqgSBbiqpRwk-s69D5nl9oWEw&callback=initMap">
     </script>
