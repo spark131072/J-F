@@ -214,4 +214,4 @@ var d = [
          {value: 75, order:3},
          {value: 75, order:4}
         ];
-RadarChart.draw("#chart-self", d);
+RadarChart.draw("#chart-partner", d);
