@@ -60,4 +60,5 @@ def upload_pic(request):
     return HttpResponseForbidden('allowed only via POST')
 
 def preference(request):
+    
     return render(request,'preference.html',locals())
