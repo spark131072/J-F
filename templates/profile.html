@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% csrf_token %}
+{% block content %}
+<div id="container">
+<div class="gtco-loader"></div>
+
+    <nav class="gtco-nav" role="navigation">
+        <div class="gtco-container">
+            <div class="row">
+                <div class="col-xs-2">
+                    <div id="gtco-logo"><a href="/"><img src="/static/img/JF.png" height="50" width="50"></a></div>
+                </div>
+                <div class="col-xs-8 text-center menu-1">
+                    <ul>
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="/#gtco-team">About</a></li>
+                        <li><a href="/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-2 text-right hidden-xs menu-2">
+                    {% if user.is_authenticated %}
+                    <ul>
+                        <button class="logbtn" onclick="location.href='{% url "taste" %}'"><span>Taste</span></button><br>
+                        <button class="logbtn" onclick="location.href='{% url "logout" %}'"><span>Log Out</span></button>
+                    </ul>
+                    {% else %}
+                    <ul>
+                        <a href="{% url 'login' %}" class="logbtn"><span>Login</span></a>
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="content-section">
+      <div class="media">
+          <center>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" height="600" width="600">
+        <div class="media-body">
+            <br>
+          <h2 class="account-heading">My name is : {{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+        <form action="{% url 'upload_pic' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+            <p>
+                <input id="id_image" type="file" class="" name="image">
+            </p>
+            <!--<input type="submit" value="Submit" class="indexbtn"/>-->
+            <button class="indexbtn" type="submit"><span>Submit</span></button>
+        </form>
+          </center>
+      </div>
+      <!-- FORM HERE -->
+    </div>
+</div>
+{% endblock content %}
