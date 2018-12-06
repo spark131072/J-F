@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Settings</title>
+    <title>Taste</title>
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
     <!-- Animate.css -->
     <link href="{% static 'css/animate.css' %}"rel="stylesheet">
@@ -58,16 +58,17 @@
     <![endif]-->
 
 <body>
+
 <div id="self">
 <p>I am ...</p>
-
+<pre>
 <div id="chart-self" style='float:left'></div>
 
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="{% static 'js/radar-self.js' %}"></script>
 <script>
 
-var d = [
+var c = [
          {axis: "Attractive", value: 3, order:0},
          {axis: "Sincere", value: 3, order:1},
          {axis: "Intelligent", value: 3, order:2},
@@ -75,13 +76,14 @@ var d = [
          {axis: "Ambitious", value: 3, order:4},
          {axis: "Interest", value: 3, order:5}
         ];
-RadarChart.draw("#chart-self", d);
+RadarChart.draw("#chart-self", c);
 </script>
+</pre>
 </div>
 
 <div id="partner">
 <p>I am looking for ... </p>
-
+<pre>
 <div id="chart-partner" style='float:left'></div>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="{% static 'js/radar-partner.js' %}"></script>
@@ -97,6 +99,8 @@ var d = [
         ];
 RadarChart.draw("#chart-partner", d);
 </script>
+</pre>
 </div>
+
 </body>
 </html>
