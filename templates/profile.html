@@ -33,9 +33,9 @@
         </div>
     </nav>
 
-    <div class="content-section">
+    <div class="content-section" style="display: block">
       <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" height="700" width="700">
         <div class="media-body">
           <h2 class="account-heading">My name is : {{ user.username }}</h2>
           <p class="text-secondary">{{ user.email }}</p>
