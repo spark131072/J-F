@@ -59,8 +59,5 @@ def upload_pic(request):
             return redirect('profile')
     return HttpResponseForbidden('allowed only via POST')
 
-def chart_self(request):
-    return render(request,'chart-self.html',locals())
-
-def chart_partner(request):
-    return render(request, 'chart-partner.html',locals())
+def taste(request):
+    return render(request,'taste.html',locals())
