@@ -58,12 +58,11 @@
     <![endif]-->
 
 <body>
-
+<center>
 <div id="self">
-<p>I am ...</p>
-
-<div id="chart" style='float:left'></div>
-
+<h1>I am ...</h1>
+<pre>
+<div id="chart" style='float:center'></div>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="{% static 'js/radar-self.js' %}"></script>
 <script>
@@ -75,8 +74,10 @@ var d = [
          {axis: "Ambitious", value: 3, order:4},
          {axis: "Interest", value: 3, order:5}
         ];
-RadarChart.draw("#chart", d, mycfg);
+RadarChart.draw("#chart", d);
 </script>
+</pre>
 </div>
+</center>
 </body>
 </html>

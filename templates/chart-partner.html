@@ -58,10 +58,11 @@
     <![endif]-->
 
 <body>
-
+<center>
 <div id="partner">
-<p>I am looking for ... </p>
-<div id="chart" style='float:left'></div>
+<h1>I am looking for ... </h1>
+    <pre>
+<div id="chart" style='float:center'></div>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="{% static 'js/radar-partner.js' %}"></script>
 <script>
@@ -75,7 +76,8 @@ var d = [
         ];
 RadarChart.draw("#chart", d);
 </script>
+    </pre>
 </div>
-
+</center>
 </body>
 </html>
