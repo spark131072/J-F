@@ -7,13 +7,61 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Sign up</h2>
+
+<nav class="gtco-nav" role="navigation">
+        <div class="gtco-container">
+            <div class="row">
+                <div class="col-xs-2">
+                    <div id="gtco-logo"><a href="/"><img src="/static/img/JF.png" height="50" width="50"></a></div>
+                </div>
+                <div class="col-xs-8 text-center menu-1">
+                    <ul>
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="#gtco-team">About</a></li>
+                        <!--
+                        <li class="has-dropdown">
+                            <a href="/">Services</a>
+                            <ul class="dropdown">
+                                <li><a href="/">Web Design</a></li>
+                                <li><a href="/">eCommerce</a></li>
+                                <li><a href="/">Branding</a></li>
+                                <li><a href="/">API</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="/">Tools</a>
+                            <ul class="dropdown">
+                                <li><a href="/">HTML5</a></li>
+                                <li><a href="/">CSS3</a></li>
+                                <li><a href="/">Sass</a></li>
+                                <li><a href="/">jQuery</a></li>
+                            </ul>
+                        </li>-->
+                        <li><a href="/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-2 text-right hidden-xs menu-2">
+                    {% if user.is_authenticated %}
+                    <ul>
+                        <button class="logbtn" onclick="location.href='{% url "logout" %}'"><span>Log Out</span></button>
+                    </ul>
+                    {% else %}
+                    <ul>
+                        <a href="{% url 'login' %}" class="logbtn"><span>Login</span></a>
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
 <center>
+  <br><br><br><br>
+  <h2>Sign up</h2>
  <form method="post">
    {% csrf_token %}
    {% for field in form %}
      <div>
-       {{ field.label_tag }}<br>
+       {{ field.label_tag }}
        {{ field }}
        {% for error in field.errors %}
          <p style="color: red">{{ error }}</p>
@@ -23,4 +71,5 @@
    <button class="indexbtn" type="submit"><span>Register</span></button>
  </form>
 </center>
+
 {% endblock %}

@@ -23,6 +23,14 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('geo/', views.geo, name='geo'),
     path('account/', include('account.urls')),
-    path('account/', include('django.contrib.auth.urls'))
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('account/', include('django.contrib.auth.urls')),
+    path('match/', views.match, name='match'),
+    path('test/', views.test, name='test'),
+    path('chat/', include('chat.urls'))
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

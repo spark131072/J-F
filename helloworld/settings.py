@@ -38,7 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    'core',
+    'chat',
+    'channels',
+    # 'django-socketio',
+    # 'geo',
+    # 'django_google_maps'
 ]
+
+
+# Google Maps API key
+GOOGLE_MAPS_API_KEY = 'AIzaSyD27byCiGJqgSBbiqpRwk-s69D5nl9oWEw'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -138,6 +149,8 @@ else:
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # settings for localhost
 django_heroku.settings(locals())
@@ -145,6 +158,17 @@ django_heroku.settings(locals())
 # settings for redirect
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+##for chat room
+ASGI_APPLICATION = 'helloworld.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # settings for resetting password
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
