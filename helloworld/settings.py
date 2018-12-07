@@ -170,6 +170,13 @@ CHANNEL_LAYERS = {
     },
 }
 
+CACHES = {
+    "default": {
+         "BACKEND": "redis_cache.RedisCache",
+         "LOCATION": os.environ.get('redis://h:p70d3cc537003f4342645b7ee7b71da3ab4ac38a7f91bc878d1096e9ea49cc9d1@ec2-54-208-36-220.compute-1.amazonaws.com:62319'),
+    }
+}
+
 # settings for resetting password
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")

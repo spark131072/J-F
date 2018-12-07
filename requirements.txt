@@ -27,3 +27,4 @@ chardet==3.0.4
 certifi==2018.8.24
 channels==2.1.5
 channels-redis==2.3.2
+redis==3.0.1
