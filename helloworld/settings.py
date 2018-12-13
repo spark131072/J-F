@@ -156,11 +156,12 @@ LOGOUT_REDIRECT_URL = '/'
 ##for chat room
 ASGI_APPLICATION = 'helloworld.routing.application'
 CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": ['redis://localhost:6379/4']
         },
+        "ROUTING": "chat.routing.channel_routing",
     },
 }
 
