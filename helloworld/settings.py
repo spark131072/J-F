@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    'core',
     'chat',
     'channels',
     # 'django-socketio',
@@ -169,6 +170,7 @@ CHANNEL_LAYERS = {
         # "ROUTING": "chat.routing.channel_routing",
     },
 }
+
 
 # settings for resetting password
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"

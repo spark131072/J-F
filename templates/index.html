@@ -24,57 +24,96 @@
     <!-- Modernizr JS -->
     <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </head>
-
-<body>
-<div id="container">
-<div class="gtco-loader"></div>
-
 =======
+>>>>>>> 44e95f6776cffdb2b004a9832151f3b8234bff17
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+     // Add smooth scrolling to all links
+     $("a").on('click', function(event) {
+
+       // Make sure this.hash has a value before overriding default behavior
+       if (this.hash !== "") {
+         // Prevent default anchor click behavior
+         event.preventDefault();
+
+         // Store hash
+         var hash = this.hash;
+
+         // Using jQuery's animate() method to add smooth page scroll
+         // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+         $('html, body').animate({
+           scrollTop: $(hash).offset().top
+         }, 800, function(){
+
+           // Add hash (#) to URL when done scrolling (default click behavior)
+           window.location.hash = hash;
+         });
+       } // End if
+     });
+    });
+    </script>
+
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 44e95f6776cffdb2b004a9832151f3b8234bff17
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
     <script src="{% static 'js/respond.min.js' %}"></script>
     <![endif]-->
- 
-</head>
 
 <body>
+<<<<<<< HEAD
 >>>>>>> Ivan
+=======
+<div id="container">
+<div class="gtco-loader"></div>
+
+>>>>>>> 44e95f6776cffdb2b004a9832151f3b8234bff17
     <div id="page">
     <nav class="gtco-nav" role="navigation">
         <div class="gtco-container">
             <div class="row">
                 <div class="col-xs-2">
-                    <div id="gtco-logo"><a href="/"><img src="/static/img/JF.png" height="93" width="93"></a></div>
+                    <div id="gtco-logo"><a href="/"><img src="/static/img/JF.png" height="50" width="50"></a></div>
                 </div>
                 <div class="col-xs-8 text-center menu-1">
                     <ul>
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="#gtco-team">About</a></li>
+                        <!--
                         <li class="has-dropdown">
-                            <a href="services.html">Services</a>
+                            <a href="/">Services</a>
                             <ul class="dropdown">
-                                <li><a href="#">Web Design</a></li>
-                                <li><a href="#">eCommerce</a></li>
-                                <li><a href="#">Branding</a></li>
-                                <li><a href="#">API</a></li>
+                                <li><a href="/">Web Design</a></li>
+                                <li><a href="/">eCommerce</a></li>
+                                <li><a href="/">Branding</a></li>
+                                <li><a href="/">API</a></li>
                             </ul>
                         </li>
                         <li class="has-dropdown">
-                            <a href="#">Tools</a>
+                            <a href="/">Tools</a>
                             <ul class="dropdown">
-                                <li><a href="#">HTML5</a></li>
-                                <li><a href="#">CSS3</a></li>
-                                <li><a href="#">Sass</a></li>
-                                <li><a href="#">jQuery</a></li>
+                                <li><a href="/">HTML5</a></li>
+                                <li><a href="/">CSS3</a></li>
+                                <li><a href="/">Sass</a></li>
+                                <li><a href="/">jQuery</a></li>
                             </ul>
-                        </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        </li>-->
+                        <li><a href="/">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-xs-2 text-right hidden-xs menu-2">
                     {% if user.is_authenticated %}
                     <ul>
+<<<<<<< HEAD
+=======
+                        <button class="logbtn" onclick="location.href='{% url "taste" %}'"><span>Taste</span></button><br>
+>>>>>>> 44e95f6776cffdb2b004a9832151f3b8234bff17
                         <button class="logbtn" onclick="location.href='{% url "logout" %}'"><span>Log Out</span></button>
                     </ul>
                     {% else %}
@@ -84,20 +123,21 @@
                     {% endif %}
                 </div>
             </div>
-
         </div>
     </nav>
 
     <header id="gtco-header" class="gtco-cover" role="banner">
-        <div id="bgimg"></div>
         <div class="gtco-container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeIn">
-                            <h1><font face="Times New Roman">JF</font></h1>
+                            <!--<h1><font face="Times New Roman">JF</font></h1>-->
+                            <img src="/static/img/JF.png" height="90" width="90">
                             <h2><font face="Times New Roman">just friends, just flirt, just fuck</font></h2>
                             {% if user.is_authenticated %}
+                            <h2><font face="Times New Roman">Hi, {{user.username}}</font></h2>
+                                <p><a href="{% url 'profile' %}" class="indexbtn"><span>Profile</span></a></p>
                             {% else %}
                                 <p><a href="{% url 'signup' %}" class="indexbtn"><span>Get Started</span></a></p>
                             {% endif %}
@@ -107,7 +147,7 @@
             </div>
         </div>
     </header>
-</div>
+    </div>
 
 
     <div id="gtco-team" class="gtco-section" style="background-color:white">
@@ -125,7 +165,7 @@
 						<strong class="role">Co-founder</strong>
 						<p>majoring in electronic engineering @ NTU</p>
 						<ul class="gtco-social-icons">
-							<li><a href="https://www.facebook.com/profile.php?id=100000415120238/" target="_blank"><i class="icon-facebook"></i></a></li>
+							<li><a href="https://www.facebook.com/ivan861118/" target="_blank"><i class="icon-facebook"></i></a></li>
 							<li><a href="http://www.instagram.com/andy821023/" target="_blank"><i class="icon-instagram"></i></a></li>
 							<li><a href="https://github.com/ivan861118/" target="_blank"><i class="icon-github"></i></a></li>
 						</ul>
@@ -167,35 +207,34 @@
                 <div class="col-md-4 gtco-widget">
                     <h3>The Company</h3>
                     <p>Newly founded in fall, 2018</p>
-                    <p><a href="#">Learn More</a></p>
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
                     <ul class="gtco-footer-links">
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Terms</a></li>
-                        <li><a href="#">Meetups</a></li>
+                        <li><a href="/">About</a></li>
+                        <li><a href="/">Help</a></li>
+                        <li><a href="/">Contact</a></li>
+                        <li><a href="/">Terms</a></li>
+                        <li><a href="/">Meetups</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
                     <ul class="gtco-footer-links">
-                        <li><a href="#">Shop</a></li>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Testimonials</a></li>
-                        <li><a href="#">Handbook</a></li>
-                        <li><a href="#">Held Desk</a></li>
+                        <li><a href="/">Shop</a></li>
+                        <li><a href="/">Privacy</a></li>
+                        <li><a href="/">Testimonials</a></li>
+                        <li><a href="/">Handbook</a></li>
+                        <li><a href="/">Held Desk</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
                     <ul class="gtco-footer-links">
-                        <li><a href="#">Find Designers</a></li>
-                        <li><a href="#">Find Deelopers</a></li>
-                        <li><a href="#">Teams</a></li>
-                        <li><a href="#">Advertise</a></li>
-                        <li><a href="#">API</a></li>
+                        <li><a href="#gtco-team">Find Designers</a></li>
+                        <li><a href="#gtco-team">Find Deelopers</a></li>
+                        <li><a href="#gtco-team">Teams</a></li>
+                        <li><a href="/">Advertise</a></li>
+                        <li><a href="/">API</a></li>
                     </ul>
                 </div>
             </div>
@@ -207,10 +246,10 @@
                     </p>
                     <p class="pull-right">
                         <ul class="gtco-social-icons pull-right">
-                            <li><a href="#"><i class="icon-twitter"></i></a></li>
-                            <li><a href="#"><i class="icon-facebook"></i></a></li>
-                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                            <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                            <li><a href="#/"><i class="icon-twitter"></i></a></li>
+                            <li><a href="/"><i class="icon-facebook"></i></a></li>
+                            <li><a href="/"><i class="icon-linkedin"></i></a></li>
+                            <li><a href="/"><i class="icon-dribbble"></i></a></li>
                         </ul>
                     </p>
                 </div>
@@ -221,7 +260,7 @@
     </div>
 
     <div class="gototop js-top">
-        <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+        <a href="/" class="js-gotop"><i class="icon-arrow-up"></i></a>
     </div>
 
     <!-- jQuery -->
