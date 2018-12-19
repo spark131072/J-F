@@ -161,7 +161,7 @@ CHANNEL_LAYERS = {
         "CONFIG": {
             "hosts": ['redis://localhost:6379/4']
         },
-        "ROUTING": "chat.routing.channel_routing",
+        # "ROUTING": "chat.routing.channel_routing",
     },
 }
 
