@@ -1,2 +1,2 @@
-web: daphne helloworld.asgi:application --port $port --bind 0.0.0.0
+web: daphne helloworld.asgi:application
 worker: python manage.py runworker channels -v2
