@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    'chat',
+    'channels',
+    # 'django-socketio',
     # 'geo',
     # 'django_google_maps'
 ]
@@ -154,6 +157,18 @@ django_heroku.settings(locals())
 # settings for redirect
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+##for chat room
+ASGI_APPLICATION = 'helloworld.routing.application'
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": ['redis://localhost:6379/4']
+        },
+        # "ROUTING": "chat.routing.channel_routing",
+    },
+}
 
 # settings for resetting password
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"

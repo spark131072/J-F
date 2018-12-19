@@ -23,12 +23,23 @@
 
     <!-- Modernizr JS -->
     <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+<<<<<<< HEAD
 </head>
 
 <body>
 <div id="container">
 <div class="gtco-loader"></div>
 
+=======
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="{% static 'js/respond.min.js' %}"></script>
+    <![endif]-->
+ 
+</head>
+
+<body>
+>>>>>>> Ivan
     <div id="page">
     <nav class="gtco-nav" role="navigation">
         <div class="gtco-container">
@@ -233,5 +244,15 @@
 
 
 </body>
+<!-- <script>
+var socket = new io.Socket();
+socket.connect();
+socket.on('connect', function() {
+    socket.subscribe('my channel');
+});
+
+
+
+</script> -->
 
 </html>
