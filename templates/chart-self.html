@@ -63,6 +63,7 @@
 <h1>I am ...</h1>
 <pre>
 <div id="chart" style='float:center'></div>
+    <form action="#" method="get">
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="{% static 'js/radar-self.js' %}"></script>
 <script>
@@ -75,8 +76,10 @@ var d = [
         ];
 RadarChart.draw("#chart", d);
 </script>
+        </form>
 </pre>
-</div>
+    <button type="submit">Save</button>
+    </div>
 </center>
 </body>
 </html>
