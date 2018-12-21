@@ -10,8 +10,5 @@ application = ProtocolTypeRouter({
         )
     ),
 })
-<<<<<<< HEAD
 
 ASGI_APPLICATION = "helloworld.routing.application"
-=======
->>>>>>> 44e95f6776cffdb2b004a9832151f3b8234bff17

@@ -18,7 +18,7 @@ from django.contrib.auth.models import User
 from django.conf import settings
 import random
 from account.models import Geo
-import requestsd
+import requests
 import json
 
 
