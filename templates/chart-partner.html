@@ -52,11 +52,14 @@
     });
     </script>
 
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/csrf.js' %}"></script>
+
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
     <script src="{% static 'js/respond.min.js' %}"></script>
     <![endif]-->
-
+</head>
 <body>
 <center>
 <div id="partner">
@@ -94,6 +97,7 @@ $(document).ready(function() {
 </script>
     </pre>
     <form method="post" id="data-partner">
+        {% csrf_token %}
         <button type="submit">Save</button>
     </form>
 </div>
