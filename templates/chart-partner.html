@@ -61,7 +61,6 @@
 <center>
 <div id="partner">
 <h1>I am looking for ... </h1>
-    <form method="post" id="data-partner">
     <pre>
 <div id="chart" style='float:center'></div>
 <script src="https://d3js.org/d3.v3.min.js"></script>
@@ -82,7 +81,7 @@ $(document).ready(function() {
                  type:"POST",
                  url:"/chart-partner/",
                  data: {
-                        'data': $('#data-partner').val() // from form
+                        'data': $('#data-partner').d() // from form
                         },
                  success: function(){
                      $('#chart').html("<h2>Saved!</h2>")
@@ -94,6 +93,7 @@ $(document).ready(function() {
 });
 </script>
     </pre>
+    <form method="post" id="data-partner">
         <button type="submit">Save</button>
     </form>
 </div>
