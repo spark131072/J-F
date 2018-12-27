@@ -38,12 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    'core',
     'chat',
     'channels',
     # 'django-socketio',
     # 'geo',
     # 'django_google_maps'
 ]
+
+
+# Google Maps API key
+GOOGLE_MAPS_API_KEY = 'AIzaSyD27byCiGJqgSBbiqpRwk-s69D5nl9oWEw'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -164,6 +170,7 @@ CHANNEL_LAYERS = {
         # "ROUTING": "chat.routing.channel_routing",
     },
 }
+
 
 # settings for resetting password
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"

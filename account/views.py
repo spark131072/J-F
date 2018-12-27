@@ -58,3 +58,6 @@ def upload_pic(request):
             user.save()
             return redirect('profile')
     return HttpResponseForbidden('allowed only via POST')
+
+def taste(request):
+    return render(request,'taste.html',locals())
