@@ -52,18 +52,16 @@ class Taste(models.Model):
     self_ist = models.DecimalField(max_digits=2, decimal_places=1)
     self_amb = models.DecimalField(max_digits=2, decimal_places=1)
     self_fun = models.DecimalField(max_digits=2, decimal_places=1)
-    self_int = models.DecimalField(max_digits=2, decimal_places=1)
     self_sin = models.DecimalField(max_digits=2, decimal_places=1)
     prtn_atc = models.DecimalField(max_digits=2, decimal_places=1)
     prtn_ist = models.DecimalField(max_digits=2, decimal_places=1)
     prtn_amb = models.DecimalField(max_digits=2, decimal_places=1)
     prtn_fun = models.DecimalField(max_digits=2, decimal_places=1)
-    prtn_int = models.DecimalField(max_digits=2, decimal_places=1)
     prtn_sin = models.DecimalField(max_digits=2, decimal_places=1)
 
     def __str__(self):
         return self.username, \
 self.self_atc, self.self_ist, self.self_amb,\
-self.self_fun, self.self_int, self.self_sin,\
+self.self_fun, self.self_sin,\
 self.prtn_atc, self.prtn_ist, self.prtn_amb,\
-self.prtn_fun, self.prtn_int, self.prtn_sin\
+self.prtn_fun, self.prtn_sin\

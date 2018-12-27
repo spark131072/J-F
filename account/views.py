@@ -10,13 +10,14 @@ account/views.py
 
 # =============
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth import login, authenticate
 from .forms import SignUpForm, ImageUploadForm
+from django.http import HttpResponse
 
 
 def signup(request):
