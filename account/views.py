@@ -129,20 +129,11 @@ def upload_pic(request):
 def chart_self(request):
 
     taste(request, "self")
+
     return render(request,'chart-self.html',locals())
 
 def chart_partner(request):
 
     taste(request, "prtn")
-
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        print(len(data))
-        print(data[0]['axis'], data[0]['value'])
-        print(data[1]['axis'], data[1]['value'])
-        print(data[2]['axis'], data[2]['value'])
-        print(data[3]['axis'], data[3]['value'])
-        print(data[4]['axis'], data[4]['value'])
-
 
     return render(request,'chart-partner.html',locals())
