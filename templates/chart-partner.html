@@ -6,30 +6,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Preference</title>
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
-    <!-- Animate.css -->
-    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
-    <!-- Icomoon Icon Fonts-->
-    <link href="{% static 'css/icomoon.css' %}" rel="stylesheet">
-    <!-- Bootstrap  -->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <!-- Magnific Popup -->
-    <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
-    <!-- Owl Carousel  -->
-    <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/owl.theme.default.min.css' %}" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" rel="stylesheet">
-
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
     <!-- Modernizr JS -->
     <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="{% static 'js/radar-partner.js' %}"></script>
     <script src="{% static 'js/jquery.js' %}"></script>
-    <script src="{% static 'js/csrf.js' %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/csrf.js' %}"></script>
 </head>
 
+
+
 <script>
-$(document).ready(function(){
+    $(document).ready(function(){
  // Add smooth scrolling to all links
  $("a").on('click', function(event) {
 
@@ -59,12 +50,11 @@ $(document).ready(function(){
     <center>
         <div id="partner">
             <h1>I am looking for ... </h1>
-            <pre>
-<div id="chart" style='float:center'></div>
-<script src="https://d3js.org/d3.v3.min.js"></script>
-<script src="{% static 'js/radar-partner.js' %}"></script>
-<script>
-var d = [
+
+            <div id="chart" style='float:center'></div>
+        </div>
+        <script>
+            var d = [
          {axis: "Attractive", value: 3, order:0},
          {axis: "Sincere", value: 3, order:1},
          {axis: "Intelligent", value: 3, order:2},
@@ -77,25 +67,27 @@ $(document).ready(function() {
        $("#data-partner").submit(function(event){
             $.ajax({
                  type:"POST",
-                 url:"/chart-partner/",
-                 data: {
-                        'data': $('#data-partner').d() // from form
-                        },
+                 url:"{% url 'chart-partner' %}",
+                 data: JSON.stringify(d),
+                 contentType: 'application/json',
+                 datatype: "json",
                  success: function(){
-                     $('#chart').html("<h2>Saved!</h2>")
-                 }
+                     $('#chart').html("<h2>Saved!</h2>");
+                     alert("succeed!");
+                 },
+                 error: function(){
+                     alert("error!");
+                 },
             });
             return false; //<---- move it here
        });
 
 });
 </script>
-    </pre>
-            <form method="post" id="data-partner">
-                {% csrf_token %}
-                <button type="submit">Save</button>
-            </form>
-        </div>
+        <form method="post" id="data-partner">
+            {% csrf_token %}
+            <button type="submit">Save</button>
+        </form>
     </center>
 </body>
 
