@@ -21,13 +21,10 @@ from django.http import HttpResponse
 import json
 
 
-def geo_locate(request):
+def taste(request):
 
     if request.user.is_authenticated:
         _user = request.user
-
-        _lat = 0.000000
-        _lng = 0.000000
 
         if request.method == 'POST':
             geo_info = json.loads(request.body)
