@@ -10,7 +10,12 @@ var RadarChart = {
       maxValue: 5,
       radians: 2 * Math.PI,
       opacityArea: 0.5,
-      color: d3.rgb("#2aacac")
+      color: d3.rgb("#2aacac"),
+      ToRight: 5,
+	  TranslateX: 80,
+	  TranslateY: 30,
+	  ExtraWidthX: 100,
+	  ExtraWidthY: 100
     };
     if('undefined' !== typeof options){
       for(var i in options){
@@ -28,6 +33,13 @@ var RadarChart = {
     // 初始化畫布
     d3.select(id).select("svg").remove();
     var g = d3.select(id).append("svg").attr("width", cfg.w).attr("height", cfg.h).append("g");
+    var g = d3.select(id)
+			.append("svg")
+			.attr("width", cfg.w+cfg.ExtraWidthX)
+			.attr("height", cfg.h+cfg.ExtraWidthY)
+			.append("g")
+			.attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");
+			;
 
     var tooltip;
 
@@ -208,11 +220,11 @@ var RadarChart = {
   }
 };
 var d = [
-         {value: 75, order:0},
-         {value: 75, order:1},
-         {value: 75, order:2},
-         {value: 75, order:3},
-         {value: 75, order:4},
-         {value: 75, order:5}
+         {value: 3, order:0},
+         {value: 3, order:1},
+         {value: 3, order:2},
+         {value: 3, order:3},
+         {value: 3, order:4},
+         {value: 3, order:5}
         ];
 RadarChart.draw("#chart-partner", d);

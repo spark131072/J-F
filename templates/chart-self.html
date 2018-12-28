@@ -5,79 +5,90 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Self Rating</title>
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
-    <!-- Animate.css -->
-    <link href="{% static 'css/animate.css' %}"rel="stylesheet">
-    <!-- Icomoon Icon Fonts-->
-    <link href="{% static 'css/icomoon.css' %}" rel="stylesheet">
-    <!-- Bootstrap  -->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <!-- Magnific Popup -->
-    <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
-    <!-- Owl Carousel  -->
-    <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/owl.theme.default.min.css' %}" rel="stylesheet">
-
+    <title>Preference</title>
     <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" rel="stylesheet">
-
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
     <!-- Modernizr JS -->
     <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
-
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="{% static 'js/radar-partner.js' %}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
+    <script src="{% static 'js/csrf.js' %}"></script>
+</head>
+
+
+
+<script>
     $(document).ready(function(){
-     // Add smooth scrolling to all links
-     $("a").on('click', function(event) {
+ // Add smooth scrolling to all links
+ $("a").on('click', function(event) {
 
-       // Make sure this.hash has a value before overriding default behavior
-       if (this.hash !== "") {
-         // Prevent default anchor click behavior
-         event.preventDefault();
+   // Make sure this.hash has a value before overriding default behavior
+   if (this.hash !== "") {
+     // Prevent default anchor click behavior
+     event.preventDefault();
 
-         // Store hash
-         var hash = this.hash;
+     // Store hash
+     var hash = this.hash;
 
-         // Using jQuery's animate() method to add smooth page scroll
-         // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-         $('html, body').animate({
-           scrollTop: $(hash).offset().top
-         }, 800, function(){
+     // Using jQuery's animate() method to add smooth page scroll
+     // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+     $('html, body').animate({
+       scrollTop: $(hash).offset().top
+     }, 800, function(){
 
-           // Add hash (#) to URL when done scrolling (default click behavior)
-           window.location.hash = hash;
-         });
-       } // End if
+       // Add hash (#) to URL when done scrolling (default click behavior)
+       window.location.hash = hash;
      });
-    });
-    </script>
-
-    <!-- FOR IE9 below -->
-    <!--[if lt IE 9]>
-    <script src="{% static 'js/respond.min.js' %}"></script>
-    <![endif]-->
+   } // End if
+ });
+});
+</script>
 
 <body>
-<center>
-<div id="self">
-<h1>I am ...</h1>
-<pre>
-<div id="chart" style='float:center'></div>
-<script src="https://d3js.org/d3.v3.min.js"></script>
-<script src="{% static 'js/radar-self.js' %}"></script>
-<script>
-var d = [
+    <center>
+        <div id="partner">
+            <h1>I am ... </h1>
+
+            <div id="chart" style='float:center'></div>
+        </div>
+        <script>
+            var d = [
          {axis: "Attractive", value: 3, order:0},
          {axis: "Sincere", value: 3, order:1},
          {axis: "Intelligent", value: 3, order:2},
          {axis: "Fun", value: 3, order:3},
          {axis: "Ambitious", value: 3, order:4},
-         {axis: "Interest", value: 3, order:5}
         ];
 RadarChart.draw("#chart", d);
+
+$(document).ready(function() {
+       $("#data-partner").submit(function(event){
+            $.ajax({
+                 type:"POST",
+                 url:"{% url 'chart-self' %}",
+                 data: JSON.stringify(d),
+                 contentType: 'application/json',
+                 datatype: "json",
+                 success: function(){
+                     $('#chart').html("<h2>Saved!</h2>");
+                     alert("succeed!");
+                 },
+                 error: function(){
+                     alert("error!");
+                 },
+            });
+            return false; //<---- move it here
+       });
+
+});
 </script>
-</pre>
-</div>
-</center>
+        <form method="post" id="data-partner">
+            {% csrf_token %}
+            <button type="submit">Save</button>
+        </form>
+    </center>
 </body>
+
 </html>
