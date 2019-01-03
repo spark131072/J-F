@@ -120,7 +120,7 @@
                             <h2><font face="Times New Roman">just friends, just flirt, just fuck</font></h2>
                             {% if user.is_authenticated %}
                             <h2><font face="Times New Roman">Hi, {{user.username}}</font></h2>
-                            <p><a href="account/profile/{{user.id}}" class="indexbtn"><span>Profile</span></a></p>
+                            <p><a href="{% url 'profile' %}" class="indexbtn"><span>Profile</span></a></p>
                             <p><a href="{% url 'match' %}" class="indexbtn"><span>Find Someone</span></a></p>
                             {% else %}
                                 <p><a href="{% url 'signup' %}" class="indexbtn"><span>Get Started</span></a></p>
