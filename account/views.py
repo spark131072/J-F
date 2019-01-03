@@ -87,6 +87,16 @@ def upload_pic(request):
     return HttpResponseForbidden('allowed only via POST')
 
 def chart_self(request):
+
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        print(type(data[0]))
+        print(data[0]['axis'], data[0]['value'])
+        print(data[1]['axis'], data[1]['value'])
+        print(data[2]['axis'], data[2]['value'])
+        print(data[3]['axis'], data[3]['value'])
+        print(data[4]['axis'], data[4]['value'])
+
     return render(request,'chart-self.html',locals())
 
 def chart_partner(request):
@@ -95,13 +105,22 @@ def chart_partner(request):
         data = json.loads(request.body)
         print(type(data[0]))
         print(data[0]['axis'], data[0]['value'])
-        print(data[1]['axis'], data[0]['value'])
-        print(data[2]['axis'], data[0]['value'])
-        print(data[3]['axis'], data[0]['value'])
-        print(data[4]['axis'], data[0]['value'])
+        print(data[1]['axis'], data[1]['value'])
+        print(data[2]['axis'], data[2]['value'])
+        print(data[3]['axis'], data[3]['value'])
+        print(data[4]['axis'], data[4]['value'])
 
 
     return render(request,'chart-partner.html',locals())
 
 def test(request):
+
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        print(type(data[0]))
+        print(data[0]['axis'], data[0]['value'])
+        print(data[1]['axis'], data[1]['value'])
+        print(data[2]['axis'], data[2]['value'])
+        print(data[3]['axis'], data[3]['value'])
+        print(data[4]['axis'], data[4]['value'])
     return render(request, 'testing.html', locals())

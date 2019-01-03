@@ -3,7 +3,7 @@
 {% load static %}
 
 	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/ >
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 		<title>Smoothed D3.js Radar Chart</title>
 
 		<!-- Google fonts -->
@@ -12,34 +12,136 @@
 
 		<!-- D3.js -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js" charset="utf-8"></script>
 
 		<style>
-			body {
-				font-family: 'Open Sans', sans-serif;
-				font-size: 11px;
-				font-weight: 300;
-				fill: #242424;
-				text-align: center;
-				text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
-				cursor: default;
-			}
+           /* line 137, ../sass/radarChart.scss */
+           body {
+             overflow: hidden;
+             margin: 0;
+             font-size: 14px;
+             font-family: "proxima_nova_reg", sans-serif;
+           }
 
-			.legend {
-				font-family: 'Raleway', sans-serif;
-				fill: #333333;
-			}
+           body .edit-btn {
+             position: absolute;
+             left: 100px;
+             top: 50px;
+             height: 20px;
+             background-color: #a8a8a8;
+             color: white;
+             border-radius: 40px;
+             padding: 8px 16px 7px 13px;
+             cursor: default;
+             -webkit-touch-callout: none;
+             -webkit-user-select: none;
+             -khtml-user-select: none;
+             -moz-user-select: none;
+             -ms-user-select: none;
+             user-select: none;
+             opacity: 1;
+             visibility: visible;
+           }
 
-			.tooltip {
-				fill: #333333;
-			}
+           /* line 271, ../sass/radarChart.scss */
+           #chart {
+             position: absolute;
+             left: 100px;
+           }
+
+           /* line 493, ../sass/radarChart.scss */
+             .yaxis, .xaxis {
+             font: 10px sans-serif;
+             width: 100px;
+           }
+
+           /* line 498, ../sass/radarChart.scss */
+             .yaxis path,
+             .yaxis line,
+             .yaxis tick {
+             fill: none;
+             stroke: black;
+             shape-rendering: crispEdges;
+           }
+
+           /* line 507, ../sass/radarChart.scss */
+           .xaxis path,
+           .xaxis line {
+             fill: none;
+             stroke: black;
+             stroke-dasharray: 10,10;
+             shape-rendering: crispEdges;
+           }
+
+           body .update-value {
+             position: absolute;
+             left: 505px;
+             top: 365px;
+             width: 65px;
+             height: 65px;
+             background-color: #a8a8a8;
+             color: white;
+             border-radius: 50%;
+             cursor: default;
+             opacity: 0;
+             -webkit-touch-callout: none;
+             -webkit-user-select: none;
+             -khtml-user-select: none;
+             -moz-user-select: none;
+             -ms-user-select: none;
+             user-select: none;
+             z-index: 9;
+           }
 		</style>
 
 	</head>
 	<body>
 
-		<div class="radarChart"></div>
+		<div id="body">
+            <div id="chart"></div>
+              <div class="edit-btn">Edit Data Set</div>
+              <div class="update-value"></div>
+        </div>
 
+		<script>
+		    var d = [
+
+	          {
+		        name:"Data Set",
+		        color:"#2aacac",
+		        skills:[
+			      {axis:"Attractive",value:3, order: 0},
+			      {axis:"Sincere",value:3, order: 1},
+			      {axis:"Intelligent",value:3, order: 2},
+			      {axis:"Fun",value:3, order: 3},
+			      {axis:"Ambitious",value:3, order: 4}
+		        ],
+	          }
+            ];
+
+            $(document).ready(function() {
+			    $("#data-test").submit(function(event){
+				   $.ajax({
+					   type:"POST",
+					   url:"{% url 'testing' %}",
+					   data: JSON.stringify(d),
+					   contentType: 'application/json',
+					   datatype: "json",
+					   success: function(){
+						   $('#chart').html("<h2>Saved!</h2>");
+						   alert("succeed!");
+					   },
+					   error: function(){
+						   alert("error!");
+					   },
+				   });
+				return false; //<---- move it here
+				});
+            });
+
+	    </script>
 		<script src="{% static 'js/test.js' %}"></script>
+		<!--
 		<script>
 
       /* Radar chart design created by Nadieh Bremer - VisualCinnamon.com */
@@ -83,6 +185,16 @@
 			};
 			//Call function to draw the Radar chart
 			RadarChart(".radarChart", data, radarChartOptions);
-		</script>
+		</script>-->
+
+        <div>
+		<form method="post" id="data-test">
+			{% csrf_token %}
+            <button type="submit">Save</button>
+        </form>
+		</div>
+
+
 	</body>
 </html>
+

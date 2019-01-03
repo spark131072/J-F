@@ -55,35 +55,34 @@
         </div>
         <script>
             var d = [
-         {axis: "Attractive", value: 3, order:0},
-         {axis: "Sincere", value: 3, order:1},
-         {axis: "Intelligent", value: 3, order:2},
-         {axis: "Fun", value: 3, order:3},
-         {axis: "Ambitious", value: 3, order:4},
-        ];
-RadarChart.draw("#chart", d);
+                {axis: "Attractive", value: 3, order:0},
+                {axis: "Sincere", value: 3, order:1},
+                {axis: "Intelligent", value: 3, order:2},
+                {axis: "Fun", value: 3, order:3},
+                {axis: "Ambitious", value: 3, order:4},
+            ];
+            RadarChart.draw("#chart", d);
 
-$(document).ready(function() {
-       $("#data-partner").submit(function(event){
-            $.ajax({
-                 type:"POST",
-                 url:"{% url 'chart-self' %}",
-                 data: JSON.stringify(d),
-                 contentType: 'application/json',
-                 datatype: "json",
-                 success: function(){
-                     $('#chart').html("<h2>Saved!</h2>");
-                     alert("succeed!");
-                 },
-                 error: function(){
-                     alert("error!");
-                 },
+            $(document).ready(function() {
+                $("#data-self").submit(function(event){
+                    $.ajax({
+                        type:"POST",
+                        url:"{% url 'chart-self' %}",
+                        data: JSON.stringify(d),
+                        contentType: 'application/json',
+                        datatype: "json",
+                        success: function(){
+                            $('#chart').html("<h2>Saved!</h2>");
+                            alert("succeed!");
+                        },
+                        error: function(){
+                            alert("error!");
+                        },
+                    });
+                return false; //<---- move it here
+                });
             });
-            return false; //<---- move it here
-       });
-
-});
-</script>
+        </script>
         <form method="post" id="data-self">
             {% csrf_token %}
             <button type="submit">Save</button>
