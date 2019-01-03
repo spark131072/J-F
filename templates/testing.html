@@ -14,6 +14,10 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js" charset="utf-8"></script>
 
+		<script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/csrf.js' %}"></script>
+
+
 		<style>
            /* line 137, ../sass/radarChart.scss */
            body {
@@ -93,31 +97,23 @@
              z-index: 9;
            }
 		</style>
+    </head>
 
-	</head>
 	<body>
 
 		<div id="body">
             <div id="chart"></div>
-              <div class="edit-btn">Edit Data Set</div>
-              <div class="update-value"></div>
+			  <div class="edit-btn">Edit Data Set</div>
+			  <div>
+		         <form method="post" id="data-test">
+			         {% csrf_token %}
+					 <button class="savebtn" type="submit" >Save</button>
+                 </form>
+		      </div>
+			  <div class="update-value"></div>
         </div>
 
 		<script>
-		    var d = [
-
-	          {
-		        name:"Data Set",
-		        color:"#2aacac",
-		        skills:[
-			      {axis:"Attractive",value:3, order: 0},
-			      {axis:"Sincere",value:3, order: 1},
-			      {axis:"Intelligent",value:3, order: 2},
-			      {axis:"Fun",value:3, order: 3},
-			      {axis:"Ambitious",value:3, order: 4}
-		        ],
-	          }
-            ];
 
             $(document).ready(function() {
 			    $("#data-test").submit(function(event){
@@ -138,6 +134,21 @@
 				return false; //<---- move it here
 				});
             });
+
+            var d = [
+
+	          {
+		        name:"Data Set",
+		        color:"#2aacac",
+		        skills:[
+			      {axis:"Attractive",value:3, order: 0},
+			      {axis:"Sincere",value:3, order: 1},
+			      {axis:"Intelligent",value:3, order: 2},
+			      {axis:"Fun",value:3, order: 3},
+			      {axis:"Ambitious",value:3, order: 4}
+		        ],
+	          }
+            ];
 
 	    </script>
 		<script src="{% static 'js/test.js' %}"></script>
@@ -186,13 +197,6 @@
 			//Call function to draw the Radar chart
 			RadarChart(".radarChart", data, radarChartOptions);
 		</script>-->
-
-        <div>
-		<form method="post" id="data-test">
-			{% csrf_token %}
-            <button type="submit">Save</button>
-        </form>
-		</div>
 
 
 	</body>

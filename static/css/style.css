@@ -1679,6 +1679,26 @@ h2 {
     right: 0;
 }
 
+.savebtn {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    height: 20px;
+    background-color: #a8a8a8;
+    color: white;
+    border-radius: 40px;
+    padding: 8px 16px 7px 13px;
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    opacity: 1;
+    visibility: visible;
+}
+
 #container {
     margin: 0;
     padding: 0;

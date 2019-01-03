@@ -115,12 +115,10 @@ def chart_partner(request):
 
 def test(request):
 
+
+
     if request.method == 'POST':
         data = json.loads(request.body)
-        print(type(data[0]))
-        print(data[0]['axis'], data[0]['value'])
-        print(data[1]['axis'], data[1]['value'])
-        print(data[2]['axis'], data[2]['value'])
-        print(data[3]['axis'], data[3]['value'])
-        print(data[4]['axis'], data[4]['value'])
+        for i in range(5):
+            print(data[0]['skills'][i]['axis'], data[0]['skills'][i]['value'])
     return render(request, 'testing.html', locals())
