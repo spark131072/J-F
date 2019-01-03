@@ -22,4 +22,5 @@ urlpatterns = [
     path('upload_pic/', views.upload_pic, name='upload_pic'),
     path('chart-self/', views.chart_self, name='chart-self'),
     path('chart-partner/', views.chart_partner, name='chart-partner'),
+    path('testing/', views.test, name='testing')
 ]

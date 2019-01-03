@@ -29,8 +29,8 @@
 
            body .edit-btn {
              position: absolute;
-             left: 10px;
-             top: 100px;
+             left: 100px;
+             top: 50px;
              height: 20px;
              background-color: #a8a8a8;
              color: white;
@@ -80,7 +80,7 @@
            body .update-value {
              position: absolute;
              left: 505px;
-             top: 445px;
+             top: 365px;
              width: 65px;
              height: 65px;
              background-color: #a8a8a8;
@@ -102,15 +102,11 @@
 	<body>
 
 		<div id="body">
-            <h1>I am ...</h1>
             <div id="chart"></div>
 			  <div class="edit-btn">Edit Data Set</div>
 			  <div class="update-value"></div>
-            <br>
-            <br>
-            <br>
 			  <div>
-		         <form method="post" id="data-self">
+		         <form method="post" id="data-test">
 			         {% csrf_token %}
 					 <button class="savebtn" type="submit" >Save</button>
                  </form>
@@ -120,10 +116,10 @@
 		<script>
 
             $(document).ready(function() {
-			    $("#data-self").submit(function(event){
+			    $("#data-test").submit(function(event){
 				   $.ajax({
 					   type:"POST",
-					   url:"{% url 'chart-self' %}",
+					   url:"{% url 'testing' %}",
 					   data: JSON.stringify(d),
 					   contentType: 'application/json',
 					   datatype: "json",
@@ -155,6 +151,51 @@
 
 	    </script>
 		<script src="{% static 'js/test.js' %}"></script>
+		<!--
+		<script>
+
+      /* Radar chart design created by Nadieh Bremer - VisualCinnamon.com */
+
+			//////////////////////////////////////////////////////////////
+			//////////////////////// Set-Up //////////////////////////////
+			//////////////////////////////////////////////////////////////
+
+			var margin = {top: 100, right: 100, bottom: 100, left: 100},
+				width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
+				height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+
+			//////////////////////////////////////////////////////////////
+			////////////////////////// Data //////////////////////////////
+			//////////////////////////////////////////////////////////////
+
+			var data = [
+					  [
+						{axis: "Attractive", value: 3, order:0},
+                        {axis: "Sincere", value: 3, order:1},
+                        {axis: "Intelligent", value: 3, order:2},
+                        {axis: "Fun", value: 3, order:3},
+                        {axis: "Ambitious", value: 3, order:4},
+					  ]
+					];
+			//////////////////////////////////////////////////////////////
+			//////////////////// Draw the Chart //////////////////////////
+			//////////////////////////////////////////////////////////////
+
+			var color = d3.scale.ordinal()
+				.range(["#2aacac","#CC333F","#00A0B0"]);
+
+			var radarChartOptions = {
+			  w: width,
+			  h: height,
+			  margin: margin,
+			  maxValue: 5,
+			  levels: 5,
+			  roundStrokes: true,
+			  color: color
+			};
+			//Call function to draw the Radar chart
+			RadarChart(".radarChart", data, radarChartOptions);
+		</script>-->
 
 
 	</body>
