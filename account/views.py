@@ -45,7 +45,13 @@ def signup(request):
 #     template_name = 'signup.html'
 
 
-def profile(request):
+def profile(request,id):
+    if id == request.user.id:
+        match = 0
+    else:
+        # match = User.objects.get(id=id)
+        match = User.objects.first()
+         
     return render(request,'profile.html',locals())
 
 

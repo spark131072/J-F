@@ -49,21 +49,21 @@ class Taste(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     username = models.CharField(max_length=113, blank=False)
     self_atc = models.DecimalField(max_digits=2, decimal_places=1)
-    self_ist = models.DecimalField(max_digits=2, decimal_places=1)
     self_amb = models.DecimalField(max_digits=2, decimal_places=1)
     self_fun = models.DecimalField(max_digits=2, decimal_places=1)
     self_int = models.DecimalField(max_digits=2, decimal_places=1)
     self_sin = models.DecimalField(max_digits=2, decimal_places=1)
     prtn_atc = models.DecimalField(max_digits=2, decimal_places=1)
-    prtn_ist = models.DecimalField(max_digits=2, decimal_places=1)
     prtn_amb = models.DecimalField(max_digits=2, decimal_places=1)
     prtn_fun = models.DecimalField(max_digits=2, decimal_places=1)
     prtn_int = models.DecimalField(max_digits=2, decimal_places=1)
     prtn_sin = models.DecimalField(max_digits=2, decimal_places=1)
 
     def __str__(self):
-        return self.username, \
-self.self_atc, self.self_ist, self.self_amb,\
-self.self_fun, self.self_int, self.self_sin,\
-self.prtn_atc, self.prtn_ist, self.prtn_amb,\
-self.prtn_fun, self.prtn_int, self.prtn_sin\
+        return str(self.user_id) + "," + str(self.username) + "," +\
+str(self.self_atc) + "," + str(self.self_amb) + "," +\
+str(self.self_fun) + "," + str(self.self_int) + "," + str(self.self_sin) + "," +\
+str(self.prtn_atc) + "," + str(self.prtn_amb) + "," +\
+str(self.prtn_fun) + "," + str(self.prtn_int) + "," + str(self.prtn_sin)
+
+

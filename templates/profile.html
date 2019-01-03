@@ -44,6 +44,16 @@
               <br>
               <br>
               <br>
+        {% if match %}
+        <img class="rounded-circle account-img" src="{{ match.profile.image.url }}" height="600" width="600">
+        <div class="media-body">
+            <br>
+          <h2 class="account-heading">My name is : {{ match.username }}</h2>
+          <p class="text-secondary">{{ match.email }}</p>
+          <a href="../../chat" classs='btn btn-primary btn-lg'>Let's chat!</a>
+        </div>
+        
+        {% else %}
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" height="600" width="600">
         <div class="media-body">
             <br>
@@ -57,6 +67,7 @@
             <!--<input type="submit" value="Submit" class="indexbtn"/>-->
             <button class="indexbtn" type="submit"><span>Submit</span></button>
         </form>
+        {% endif %}
           </center>
       </div>
       <!-- FORM HERE -->

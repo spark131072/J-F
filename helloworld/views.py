@@ -93,29 +93,29 @@ def geo(request):
 
 
 def match(request):
-    user_list = User.objects.all()
-      
-    info = [];
-    for user in user_list:
-        taste = Taste.objects.filter(user = user)
-        item = {"name":user.username, 
-                "self_attr":[taste.self_atc,
-                         taste.self_amb,
-                          taste.self_fun,
-                          taste.self_int,
-                          taste.self_sin]
-                }; 
-        info.append(item)
+    # user_list = User.objects.all()
+    # taste = Taste.objects.all()
+    # info = []
+    # for i in range(len(taste)):
+    #     indi = ""
+    #     user_info = {}
+    #     indi = str(taste[i])
+    #     indi = indi.split(',')
+    #     user_info = {'id': int(indi[0]),
+    #                  'username': indi[1],
+    #                  'self_attr': [float(indi[2]), float(indi[3]), float(indi[4]), float(indi[5]), float(indi[6])],
+    #                  'prtn_attr': [float(indi[7]), float(indi[8]), float(indi[9]), float(indi[10]), float(indi[11])]
+    #     }
+    #     user_info["self_diff"] = "%.2f" % float(math.sqrt(sum(user_info["self_attr"])))
+    #     user_info["prtn_diff"] = "%.2f" % float(math.sqrt(sum(user_info["prtn_attr"])))
+    #     info.append(user_info) 
 
-    obj = [
-        {'user': 'A', 'device': 'deviceA', 'log': 'logA'},
-        {'user': 'A', 'device': 'device1', 'log': 'ptrf1'},
-        {'user': 'B', 'device': 'deviceb', 'log': 'ptrfb'},
-    ]
-
-    print(info);
-    # test = [2, 4, 3, 5, 1];
-    # test.sort();
+    # print(info);
+    # index = [1,2,3,4];
+    # array = {"4.6":'admin2',"3.2":'admin3', "2.1":'admin1',"1.9":"admin4"}
+    
+    test = [2, 4, 3,1];
+    test.sort();
 
     return render(request, 'match.html',locals())
 
