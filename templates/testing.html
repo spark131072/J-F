@@ -104,13 +104,13 @@
 		<div id="body">
             <div id="chart"></div>
 			  <div class="edit-btn">Edit Data Set</div>
+			  <div class="update-value"></div>
 			  <div>
 		         <form method="post" id="data-test">
 			         {% csrf_token %}
 					 <button class="savebtn" type="submit" >Save</button>
                  </form>
 		      </div>
-			  <div class="update-value"></div>
         </div>
 
 		<script>
@@ -124,7 +124,6 @@
 					   contentType: 'application/json',
 					   datatype: "json",
 					   success: function(){
-						   $('#chart').html("<h2>Saved!</h2>");
 						   alert("succeed!");
 					   },
 					   error: function(){

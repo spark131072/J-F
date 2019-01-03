@@ -20,6 +20,69 @@ from .forms import SignUpForm, ImageUploadForm
 from django.http import HttpResponse
 import json
 
+def taste(request, object):
+
+    if request.user.is_authenticated:
+        _user = request.user
+
+        _self_atc = 0.0
+        _self_amb = 0.0
+        _self_fun = 0.0
+        _self_int = 0.0
+        _self_sin = 0.0
+        _prtn_atc = 0.0
+        _prtn_amb = 0.0
+        _prtn_fun = 0.0
+        _prtn_int = 0.0
+        _prtn_sin = 0.0
+
+        if request.method == 'POST':
+            taste_data = json.loads(request.body)
+
+            if len(taste_data) == 5 and taste_data is not None:
+                fin = 0
+
+                if object == 'self':
+                    fin = 1
+                    _self_atc = taste_data[0]['value']
+                    _self_amb = taste_data[4]['value']
+                    _self_fun = taste_data[3]['value']
+                    _self_int = taste_data[2]['value']
+                    _self_sin = taste_data[1]['value']
+
+                elif object == 'prtn':
+                    fin = 1
+                    _prtn_atc = taste_data[0]['value']
+                    _prtn_amb = taste_data[4]['value']
+                    _prtn_fun = taste_data[3]['value']
+                    _prtn_int = taste_data[2]['value']
+                    _prtn_sin = taste_data[1]['value']
+
+                if fin == 1:
+                    if Taste.objects.filter(user=_user).count() == 0:
+                        _username = request.user.username
+                        Taste.objects.create(self_atc=_self_atc, self_amb=_self_amb, self_fun=_self_fun, self_int=_self_int, self_sin=_self_sin,
+                                             prtn_atc=_prtn_atc, prtn_amb=_prtn_amb, prtn_fun=_prtn_fun, prtn_int=_prtn_int, prtn_sin=_prtn_sin,
+                                             username=_username, user=_user)
+
+                    else:
+                        current_user = Taste.objects.get(user=_user)
+
+                        if object == 'self':
+                            current_user.self_atc = _self_atc
+                            current_user.self_amb = _self_amb
+                            current_user.self_fun = _self_fun
+                            current_user.self_int = _self_int
+                            current_user.self_sin = _self_sin
+
+                        elif object == 'prtn':
+                            current_user.prtn_atc = _prtn_atc
+                            current_user.prtn_amb = _prtn_amb
+                            current_user.prtn_fun = _prtn_fun
+                            current_user.prtn_int = _prtn_int
+                            current_user.prtn_sin = _prtn_sin
+
+                        current_user.save()
 
 def geo_locate(request):
 
@@ -90,32 +153,19 @@ def chart_self(request):
 
     if request.method == 'POST':
         data = json.loads(request.body)
-        print(type(data[0]))
-        print(data[0]['axis'], data[0]['value'])
-        print(data[1]['axis'], data[1]['value'])
-        print(data[2]['axis'], data[2]['value'])
-        print(data[3]['axis'], data[3]['value'])
-        print(data[4]['axis'], data[4]['value'])
-
+        for i in range(5):
+            print(data[0]['skills'][i]['axis'], data[0]['skills'][i]['value'])
     return render(request,'chart-self.html',locals())
 
 def chart_partner(request):
 
     if request.method == 'POST':
         data = json.loads(request.body)
-        print(type(data[0]))
-        print(data[0]['axis'], data[0]['value'])
-        print(data[1]['axis'], data[1]['value'])
-        print(data[2]['axis'], data[2]['value'])
-        print(data[3]['axis'], data[3]['value'])
-        print(data[4]['axis'], data[4]['value'])
-
-
+        for i in range(5):
+            print(data[0]['skills'][i]['axis'], data[0]['skills'][i]['value'])
     return render(request,'chart-partner.html',locals())
 
 def test(request):
-
-
 
     if request.method == 'POST':
         data = json.loads(request.body)
