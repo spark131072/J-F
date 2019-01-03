@@ -63,8 +63,8 @@ def taste(request, object):
                 if fin == 1:
                     if Taste.objects.filter(user=_user).count() == 0:
                         _username = request.user.username
-                        Taste.objects.create(self_atc = _self_atc, self_amb = _self_amb, self_fun = _self_fun, self_int = _self_int, self_sin = _self_sin, \
-                                             prtn_atc = _prtn_atc, prtn_amb = _prtn_amb, prtn_fun = _prtn_fun, prtn_int = _prtn_int, prtn_sin = _prtn_sin, \
+                        Taste.objects.create(self_atc=_self_atc, self_amb=_self_amb, self_fun=_self_fun, self_int=_self_int, self_sin=_self_sin,
+                                             prtn_atc=_prtn_atc, prtn_amb=_prtn_amb, prtn_fun=_prtn_fun, prtn_int=_prtn_int, prtn_sin=_prtn_sin,
                                              username=_username, user=_user)
 
                     else:
@@ -77,7 +77,7 @@ def taste(request, object):
                             current_user.self_int = _self_int
                             current_user.self_sin = _self_sin
 
-                        elif object =='prtn':
+                        elif object == 'prtn':
                             current_user.prtn_atc = _prtn_atc
                             current_user.prtn_amb = _prtn_amb
                             current_user.prtn_fun = _prtn_fun
@@ -85,6 +85,7 @@ def taste(request, object):
                             current_user.prtn_sin = _prtn_sin
 
                         current_user.save()
+
 
 def signup(request):
     if request.method == 'POST':
@@ -113,7 +114,7 @@ def signup(request):
 
 
 def profile(request):
-    return render(request,'profile.html',locals())
+    return render(request, 'profile.html', locals())
 
 
 def upload_pic(request):
@@ -126,14 +127,16 @@ def upload_pic(request):
             return redirect('profile')
     return HttpResponseForbidden('allowed only via POST')
 
+
 def chart_self(request):
 
     taste(request, "self")
 
-    return render(request,'chart-self.html',locals())
+    return render(request, 'chart-self.html', locals())
+
 
 def chart_partner(request):
 
     taste(request, "prtn")
 
-    return render(request,'chart-partner.html',locals())
+    return render(request, 'chart-partner.html', locals())
