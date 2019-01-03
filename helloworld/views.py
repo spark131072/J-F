@@ -20,6 +20,7 @@ import random
 from account.models import Geo, Taste
 import requests
 import json
+import math
 
 
 # def geo_locate(request):
@@ -97,13 +98,20 @@ def match(request):
     taste = Taste.objects.all()
     info = []
     for i in range(len(taste)):
-        k = str(taste[i])
-        k = k.split(',')
-        info.append(k)
+        indi = ""
+        user_info = {}
+        indi = str(taste[i])
+        indi = indi.split(',')
+        user_info = {'id': int(indi[0]),
+                     'username': indi[1],
+                     'self_attr': [float(indi[2]), float(indi[3]), float(indi[4]), float(indi[5]), float(indi[6])],
+                     'prtn_attr': [float(indi[7]), float(indi[8]), float(indi[9]), float(indi[10]), float(indi[11])]
+        }
+        user_info["self_diff"] = "%.2f" % float(math.sqrt(sum(user_info["self_attr"])))
+        user_info["prtn_diff"] = "%.2f" % float(math.sqrt(sum(user_info["prtn_attr"])))
+        info.append(user_info)
 
-    print(type(info))
     print(info)
-
 
     return render(request, 'match.html', locals())
 
