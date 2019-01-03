@@ -102,3 +102,6 @@ def chart_partner(request):
 
 
     return render(request,'chart-partner.html',locals())
+
+def test(request):
+    return render(request, 'testing.html', locals())

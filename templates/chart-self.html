@@ -11,7 +11,7 @@
     <!-- Modernizr JS -->
     <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
     <script src="https://d3js.org/d3.v3.min.js"></script>
-    <script src="{% static 'js/radar-partner.js' %}"></script>
+    <script src="{% static 'js/radar-self.js' %}"></script>
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{% static 'js/csrf.js' %}"></script>
@@ -48,7 +48,7 @@
 
 <body>
     <center>
-        <div id="partner">
+        <div id="self">
             <h1>I am ... </h1>
 
             <div id="chart" style='float:center'></div>
@@ -84,7 +84,7 @@ $(document).ready(function() {
 
 });
 </script>
-        <form method="post" id="data-partner">
+        <form method="post" id="data-self">
             {% csrf_token %}
             <button type="submit">Save</button>
         </form>
