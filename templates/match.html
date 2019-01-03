@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% csrf_token %}
 {% block content %}
+
 <div id="container">
     <div class="gtco-loader"></div>
     
@@ -32,10 +33,39 @@
                   <br>
           
             <div class="media-body">
-
             </div>
             <div>
-                
+            <!--Content-->
+            <div class='container '>
+              <div class="row border">
+                  <div class="col-6">
+                      個人頁面
+                      <div>Content</div>
+                  </div>
+                  <div class="col-6">
+                    <div>清單</div>  
+                    {% for i in test %}
+                    <div class="row">
+                        <div class="col border">{{i}}
+                            <a href="../account/profile">
+                                <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" height="50" width="50">
+                            </a>
+                            <div>姓名</div>
+                            <div>速配指數：</div>   
+
+                                
+                        </div>
+                        <div class="col border ">
+
+                        </div>
+                        <div class="col border">
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                    </div>
+                    </div>
+                </div>          
             </div>
               </center>
           </div>

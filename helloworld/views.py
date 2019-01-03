@@ -17,7 +17,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.conf import settings
 import random
-from account.models import Geo
+from account.models import Geo, Taste
 import requests
 import json
 
@@ -93,8 +93,31 @@ def geo(request):
 
 
 def match(request):
+    # user_list = User.objects.all()
+      
+    info = [];
+    # for user in user_list:
+    #     taste = Taste.objects.filter(user = user)
+    #     item = {"name":user.username, 
+    #             "self_attr":[taste.self_atc,
+    #                      taste.self_amb,
+    #                       taste.self_fun,
+    #                       taste.self_int,
+    #                       taste.self_sin]
+    #             }; 
+    #     info.append(user)
 
-    return render(request, 'match.html', locals())
+    obj = [
+        {'user': 'A', 'device': 'deviceA', 'log': 'logA'},
+        {'user': 'A', 'device': 'device1', 'log': 'ptrf1'},
+        {'user': 'B', 'device': 'deviceb', 'log': 'ptrfb'},
+    ]
+
+    # print(info);
+    test = [2, 4, 3, 5, 1];
+    test.sort();
+
+    return render(request, 'match.html',locals())
 
 
 def test(request):
