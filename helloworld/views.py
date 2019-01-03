@@ -93,19 +93,19 @@ def geo(request):
 
 
 def match(request):
-    # user_list = User.objects.all()
+    user_list = User.objects.all()
       
     info = [];
-    # for user in user_list:
-    #     taste = Taste.objects.filter(user = user)
-    #     item = {"name":user.username, 
-    #             "self_attr":[taste.self_atc,
-    #                      taste.self_amb,
-    #                       taste.self_fun,
-    #                       taste.self_int,
-    #                       taste.self_sin]
-    #             }; 
-    #     info.append(user)
+    for user in user_list:
+        taste = Taste.objects.filter(user = user)
+        item = {"name":user.username, 
+                "self_attr":[taste.self_atc,
+                         taste.self_amb,
+                          taste.self_fun,
+                          taste.self_int,
+                          taste.self_sin]
+                }; 
+        info.append(item)
 
     obj = [
         {'user': 'A', 'device': 'deviceA', 'log': 'logA'},
@@ -113,9 +113,9 @@ def match(request):
         {'user': 'B', 'device': 'deviceb', 'log': 'ptrfb'},
     ]
 
-    # print(info);
-    test = [2, 4, 3, 5, 1];
-    test.sort();
+    print(info);
+    # test = [2, 4, 3, 5, 1];
+    # test.sort();
 
     return render(request, 'match.html',locals())
 
